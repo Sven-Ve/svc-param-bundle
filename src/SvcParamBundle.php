@@ -1,10 +1,10 @@
 <?php
 
-namespace Svc\VideoBundle;
+namespace Svc\ParamBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class SvcVideoBundle extends Bundle {
+class SvcParamBundle extends Bundle {
 
   public function getPath(): string
   {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Svc\VideoBundle\DependencyInjection;
+namespace Svc\ParamBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

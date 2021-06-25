@@ -1,3 +1,4 @@
+{% trans_default_domain 'ParamBundle' %}
 {% extends 'base.html.twig' %}
 
 {% block title %}{% trans %}Edit Parameter{% endtrans %}{% endblock %}
@@ -12,7 +13,7 @@
 		<button class="btn btn-success float-end">{% trans %}Save{% endtrans %}</button>
 		{{ form_end(form) }}
 
-		<a href="{{ path('params_index') }}" class='btn btn-secondary float-start'>{% trans %}Back to list{% endtrans %}</a>
+		<a href="{{ path('svc_param_index') }}" class='btn btn-secondary float-start'>{% trans %}Back to list{% endtrans %}</a>
     <br />
     <br />
 	</div>

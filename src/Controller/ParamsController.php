@@ -12,25 +12,18 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- * @Route("/admin/params/{_locale}", requirements={"_locale": "%app.supported_locales%"})
- * @IsGranted("ROLE_SUPER_ADMIN")
+ * @IsGranted("ROLE_ADMIN")
  */
 class ParamsController extends AbstractController
 {
-  /**
-   * @Route("/", name="params_index", methods={"GET"})
-   */
   public function index(ParamsRepository $paramsRepository): Response
   {
-    return $this->render('params/index.html.twig', [
+    return $this->render('@SvcParam/params/index.html.twig', [
       'params' => $paramsRepository->findAll(),
     ]);
   }
 
 
-  /**
-   * @Route("/{id}/edit", name="params_edit", methods={"GET","POST"})
-   */
   public function edit(Request $request, Params $param): Response
   {
     $form = $this->createForm(ParamsType::class, $param, ['dataType' => $param->getParamType()]);
@@ -39,18 +32,15 @@ class ParamsController extends AbstractController
     if ($form->isSubmitted() && $form->isValid()) {
       $this->getDoctrine()->getManager()->flush();
 
-      return $this->redirectToRoute('params_index');
+      return $this->redirectToRoute('svc_param_index');
     }
 
-    return $this->render('params/edit.html.twig', [
+    return $this->renderForm('@SvcParam/params/edit.html.twig', [
       'param' => $param,
-      'form' => $form->createView(),
+      'form' => $form,
     ]);
   }
 
-  /**
-   * @Route("/{id}", name="params_delete", methods={"POST"})
-   */
   public function delete(Request $request, Params $param): Response
   {
     if ($this->isCsrfTokenValid('delete' . $param->getId(), $request->request->get('_token'))) {

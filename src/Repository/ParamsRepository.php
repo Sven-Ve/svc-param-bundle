@@ -127,7 +127,7 @@ class ParamsRepository extends ServiceEntityRepository
   }
 
   /**
-   * get a value for a param (or null, if not exists)
+   * get a value for a sring param (or null, if not exists)
    *
    * @param string $name parameter name
    * @return string|null return value as string or null if not exists

@@ -47,7 +47,8 @@ class ParamsType extends AbstractType
   {
     $resolver->setDefaults([
       'data_class' => Params::class,
-      'dataType' => null
+      'dataType' => null,
+      'translation_domain' => 'ParamBundle'
     ]);
   }
 }

@@ -1,67 +1,75 @@
 # Usage
 
 ## Entities
-Create tables (run `bin/console doctrine:schema:update --force`) or create a migration
-
-## CSS
-- include the css file (assets/styles/layout/_svc_video.scss) in your global css
-
-```scss
-// /assets/styles/app.sccs
-...
-@import './layout/_svc_video';
-...
-```
+Create table (run `bin/console doctrine:schema:update --force`) or create a migration
 
 ## Routes
-- adapt the default url prefix in config/routes/svc_profile.yaml and enable translation (if you like it)
+- adapt the default url prefix in config/routes/svc_param.yaml and enable translation (if you like it)
 
 ```yaml
-# /config/routes/_svc_video.yaml
-_svc_video:
-    resource: '@SvcPVideoBundle/src/Resources/config/routes.xml'
-    prefix: /_svc_video/{_locale}
+# /config/routes/_svc_param.yaml
+_svc_param:
+    resource: '@SvcParamBundle/src/Resources/config/routes.xml'
+    prefix: /_svc_param/{_locale}
     requirements: {"_locale": "%app.supported_locales%"}
 ```
 
 ## Enable/disable feature
 ```yaml
 # /config/packages/_svc_video.yaml
-svc_video:
-    # Enable likes for videos?
-    enableLikes:          false
-
-    # Enable short names for videos (for short URLs)?
-    enableShortNames:     false
-
-    # Enable videos groups?
-    enableGroups:         false
-
-    # Enable private viceos?
-    enablePrivate:        true
-
-    # Default route, for redirect after errors
-    homeRoute:            svc_video_list
+svc_param:
+    # Enable debug for parameter access?
+    debug:          false
 ```
 
-## Short URLs
-you have to call the trait VideoShortCallTrait in your home controller to use the short URLs
-```php
-<?php
-
-namespace App\Controller;
-
-use Svc\VideoBundle\Controller\VideoShortCallTrait;
-...
-
-class HomeController extends AbstractController
-{
-  use VideoShortCallTrait;
-...
-```
 
 ## Paths
-- integrate the video controller via path "svc_video_run"
-- integrate the video admin controller via path "svc_video_admin_index"
-- integrate the video controller via path "svc_video_group_index"
+- integrate the param editor via path "svc_param_index"
 
+## Set or get params
+
+### Set
+you have four functions to set params:
+* ParamsRepository->setParam for string or general parameter
+* ParamsRepository->setDateTime for a DateTime parameter
+* ParamsRepository->setDate for a Date parameter
+* ParamsRepository->setBool for a bool parameter
+
+<br />
+each function use the same syntax (as exemple the setter for a string):
+
+```php
+use Svc\ParamBundle\Repository\ParamsRepository;
+...
+  /**
+   * set a string parameter
+   *
+   * @param string $name parameter name
+   * @param string $val
+   * @param string|null $comment the comment for the param record, only set during param record creation
+   * @return void
+   */
+  public function setParam(string $name, $val, ?string $comment = null)
+```
+
+### Get
+you have four functions to get params:
+* ParamsRepository->getParam for string or general parameter
+* ParamsRepository->getDateTime for a DateTime parameter
+* ParamsRepository->getDate for a Date parameter
+* ParamsRepository->getBool for a bool parameter
+
+<br />
+each function use the same syntax (as exemple the setter for a string):
+
+```php
+use Svc\ParamBundle\Repository\ParamsRepository;
+...
+  /**
+   * get a value for a sring param (or null, if not exists)
+   *
+   * @param string $name parameter name
+   * @return string|null return value as string or null if not exists
+   */
+  public function getParam(string $name): ?string
+```

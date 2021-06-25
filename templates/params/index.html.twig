@@ -1,3 +1,4 @@
+{% trans_default_domain 'ParamBundle' %}
 {% extends 'base.html.twig' %}
 
 {% block title %}
@@ -26,7 +27,7 @@
 					<td>{{ param.formatValue }}</td>
 					<td>{{ param.TypeText }}</td>
 					<td>
-						<a href="{{ path('params_edit', {'id': param.id}) }}">{% trans %}Edit{% endtrans %}</a>
+						<a href="{{ path('svc_param_edit', {'id': param.id}) }}">{% trans %}Edit{% endtrans %}</a>
 					</td>
 				</tr>
 			{% else %}

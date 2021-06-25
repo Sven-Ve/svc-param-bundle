@@ -26,6 +26,10 @@ svc_param:
 ## Paths
 - integrate the param editor via path "svc_param_index"
 
+![Param editor interface](images/ParameterEdit.png "Param editor interface")
+
+
+
 ## Set or get params
 
 ### Set

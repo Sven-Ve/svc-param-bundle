@@ -16,7 +16,7 @@ _svc_param:
 
 ## Enable/disable feature
 ```yaml
-# /config/packages/_svc_video.yaml
+# /config/packages/_svc_param.yaml
 svc_param:
     # Enable debug for parameter access?
     debug:          false
@@ -60,7 +60,7 @@ you have four functions to get params:
 * ParamsRepository->getBool for a bool parameter
 
 <br />
-each function use the same syntax (as exemple the setter for a string):
+each function use the same syntax (as exemple the getter for a string):
 
 ```php
 use Svc\ParamBundle\Repository\ParamsRepository;

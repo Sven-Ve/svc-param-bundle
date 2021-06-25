@@ -14,3 +14,8 @@
 ## Version 0.1.1
 *Fri, 25 Jun 2021 17:57:48 +0000*
 - fixed some typos, added image to doc
+
+
+## Version 1.0.0
+*Fri, 25 Jun 2021 21:29:31 +0000*
+- ready to go production

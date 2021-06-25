@@ -1,0 +1,20 @@
+{% trans_default_domain 'VideoBundle' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{% trans %}Edit Video group{% endtrans %}
+{% endblock %}
+
+{% block body %}
+	<div class='form-md'>
+	<h1>{% trans %}Edit Video group{% endtrans %}</h1>
+
+    {{ include('@SvcVideo/video_group/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('svc_video_group_index') }}" class='btn btn-secondary float-start'>{% trans %}Back to list{% endtrans %}</a>
+
+    {{ include('@SvcVideo/video_group/_delete_form.html.twig') }}
+    <br />
+    <br />
+  </div>
+{% endblock %}

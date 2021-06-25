@@ -1,0 +1,17 @@
+{% trans_default_domain 'VideoBundle' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}Create new video{% endtrans %}{% endblock %}
+
+{% block body %}
+	<div class='form-md'>
+		<h1>{% trans %}Create new video{% endtrans %}</h1>
+
+		{{ include('@SvcVideo/video_admin/_form.html.twig') }}
+
+		<a class='btn btn-secondary float-start' href="{{ path('svc_video_admin_index') }}">{% trans %}Back to list{% endtrans %}</a>
+		<br/>
+		<br/>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing
+        http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="svc_video_admin_index" controller="svc_video.controller.admin::index" path="/admin/" >
+        <!-- settings -->
+    </route>
+
+    <route id="svc_video_admin_new" controller="svc_video.controller.admin::new" path="/admin/new" >
+        <!-- settings -->
+    </route>
+
+    <route id="svc_video_admin_edit" controller="svc_video.controller.admin::edit" path="/admin/edit/{id}" >
+        <!-- settings -->
+    </route>
+
+    <route id="svc_video_admin_delete" controller="svc_video.controller.admin::delete" path="/admin/delete/{id}" >
+        <!-- settings -->
+    </route>
+
+    <route id="svc_video_run" controller="svc_video.controller::run" path="/run/{id}" >
+        <!-- settings -->
+    </route>
+
+    <route id="svc_video_run_hn" controller="svc_video.controller::run" path="/run/hn/{id}" >
+       <default key="hideNav">true</default>
+    </route>
+
+    <route id="svc_video_list" controller="svc_video.controller::list" path="/{id?}" >
+      <requirement key="id">\d+</requirement>
+    </route>
+
+    <route id="svc_video_list_hn" controller="svc_video.controller::list" path="/hn/{id?}" >
+      <requirement key="id">\d+</requirement>
+      <default key="hideNav">true</default>
+    </route>
+
+    <route id="svc_video_list_hg" controller="svc_video.controller::list" path="/hg/{id?}" >
+      <requirement key="id">\d+</requirement>
+      <default key="hideGroups">true</default>
+    </route>
+
+    <route id="svc_video_list_he" controller="svc_video.controller::list" path="/he/{id?}" >
+      <requirement key="id">\d+</requirement>
+      <default key="hideGroups">true</default>
+      <default key="hideNav">true</default>
+    </route>
+
+    <route id="svc_video_inc_likes" controller="svc_video.controller::incLikes" path="/inc/{id}" >
+        <!-- settings -->
+    </route>
+
+    <route id="svc_video_group_index" controller="svc_video.controller.group::index" path="/group" >
+      <!-- settings -->
+    </route>
+
+    <route id="svc_video_group_new" controller="svc_video.controller.group::new" path="/group/new" >
+      <!-- settings -->
+    </route>
+
+    <route id="svc_video_group_edit" controller="svc_video.controller.group::edit" path="/group/edit/{id}" >
+      <!-- settings -->
+    </route>
+
+    <route id="svc_video_group_delete" controller="svc_video.controller.group::delete" path="/group/delete/{id}" >
+      <!-- settings -->
+    </route>
+
+    <route id="svc_video_pwd" controller="svc_video.controller::enterPwd" path="/pwd/{id}/{ot?}" >
+      <!-- settings -->
+    </route>
+</routes>

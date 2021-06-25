@@ -1,0 +1,20 @@
+{% trans_default_domain 'VideoBundle' %}
+<div class="p-3 mb-5 svcv-component-light">
+	<h5 class="text-center">
+		{% trans %}Groups{% endtrans %}
+	</h5>
+	<ul class="nav flex-column mb4">
+		<li class="nav-item">
+			<a class="nav-link {{ not currentGroup|default ? 'selected' }}" href='{{ path('svc_video_list') }}'>
+				{% trans %}All Videos{% endtrans %}
+			</a>
+		</li>
+		{% for group in groups %}
+			<li class="nav-item">
+				<a class="nav-link {{ currentGroup|default is same as group ? 'selected' }}" href='{{ path('svc_video_list', {id: group.id}) }}'>
+					{{ group.name }}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</div>

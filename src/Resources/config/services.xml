@@ -13,7 +13,6 @@
         <tag name="controller.service_arguments"/>
       </service>
 
-
       <service id="Svc\ParamBundle\Repository\ParamsRepository" class="Svc\ParamBundle\Repository\ParamsRepository" public="true" autowire="true" autoconfigure="true" >
         <tag name="doctrine.repository_service"/>
       </service>

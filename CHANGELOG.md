@@ -19,3 +19,8 @@
 ## Version 1.0.0
 *Fri, 25 Jun 2021 21:29:31 +0000*
 - ready to go production
+
+
+## Version 1.0.1
+*Tue, 03 Aug 2021 21:44:43 +0000*
+- remove config file creation because we have a recipe now

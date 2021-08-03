@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "1.0.0";
-$message = "ready to go production";
+$version = "1.0.1";
+$message = "remove config file creation because we have a recipe now";
 
 file_put_contents("CHANGELOG.md", "\n\n## Version " . $version, FILE_APPEND);
 file_put_contents("CHANGELOG.md", "\n*" . date("r") . "*", FILE_APPEND);

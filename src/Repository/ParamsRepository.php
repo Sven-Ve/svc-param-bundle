@@ -115,7 +115,7 @@ class ParamsRepository extends ServiceEntityRepository
    * set a boolean parameter
    *
    * @param string $name parameter name
-   * @param DateTime $val
+   * @param bool $val
    * @param string|null $comment the comment for the param record, only set during param record creation
    * @return void
    */

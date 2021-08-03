@@ -72,7 +72,6 @@ class Params
       $this->setName($name);
       $this->setValue($val);
     }
-    return $this;
   }
 
   public function getId(): ?int
@@ -165,7 +164,6 @@ class Params
     switch ($this->paramType) {
       case self::TYPE_BOOL:
         return $this->getValueBool() ? "true" : "false";
-        break;
       default:
         return $this->value;
     }

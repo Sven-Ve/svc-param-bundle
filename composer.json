@@ -32,9 +32,11 @@
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^5",
-        "symfony/browser-kit": "^5"
+        "symfony/browser-kit": "^5",
+        "phpstan/phpstan": "^0.12.94"
     },
     "scripts": {
-        "test": "vendor/bin/simple-phpunit"
+        "test": "vendor/bin/simple-phpunit",
+        "phpstan": "vendor/bin/phpstan analyse src/ --level 5"
     }
 }

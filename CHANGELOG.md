@@ -24,3 +24,8 @@
 ## Version 1.0.1
 *Tue, 03 Aug 2021 21:44:43 +0000*
 - remove config file creation because we have a recipe now
+
+
+## Version 1.0.2
+*Wed, 04 Aug 2021 08:32:47 +0000*
+- removed unused parameter debug, no config file needed

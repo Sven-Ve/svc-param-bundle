@@ -14,14 +14,6 @@ _svc_param:
     requirements: {"_locale": "%app.supported_locales%"}
 ```
 
-## Enable/disable feature
-```yaml
-# /config/packages/_svc_param.yaml
-svc_param:
-    # Enable debug for parameter access?
-    debug:          false
-```
-
 
 ## Paths
 - integrate the param editor via path "svc_param_index"

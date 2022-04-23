@@ -40,7 +40,7 @@ class SvcParamTestingKernel extends Kernel
     parent::__construct('test', true);
   }
 
-  public function registerBundles(): array
+  public function registerBundles(): iterable
   {
     return [
       new SvcParamBundle(),

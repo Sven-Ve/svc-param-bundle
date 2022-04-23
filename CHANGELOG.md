@@ -29,3 +29,8 @@
 ## Version 1.0.2
 *Wed, 04 Aug 2021 08:32:47 +0000*
 - removed unused parameter debug, no config file needed
+
+
+## Version 1.1.0
+*Sat, 23 Apr 2022 20:32:06 +0000*
+- ready for symfony 5.4 and 6.0

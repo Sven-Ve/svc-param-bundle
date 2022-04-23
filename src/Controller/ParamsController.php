@@ -3,6 +3,8 @@
 namespace Svc\ParamBundle\Controller;
 
 use Doctrine\DBAL\Exception\TableNotFoundException;
+use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Svc\ParamBundle\Entity\Params;
 use Svc\ParamBundle\Form\ParamsType;
 use Svc\ParamBundle\Repository\ParamsRepository;
@@ -21,7 +23,7 @@ class ParamsController extends AbstractController
     try {
       $params = $paramsRepository->findAll();
     } catch (TableNotFoundException $e) {
-      $this->addFlash('danger', 'Table "params" not found.');
+//      $this->addFlash('danger', 'Table "params" not found.');
       $params = null;
     }
 
@@ -31,13 +33,13 @@ class ParamsController extends AbstractController
   }
 
 
-  public function edit(Request $request, Params $param): Response
+  public function edit(Request $request, Params $param, EntityManagerInterface $entityManager): Response
   {
     $form = $this->createForm(ParamsType::class, $param, ['dataType' => $param->getParamType()]);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
-      $this->getDoctrine()->getManager()->flush();
+      $entityManager->flush();
 
       return $this->redirectToRoute('svc_param_index');
     }
@@ -48,10 +50,9 @@ class ParamsController extends AbstractController
     ]);
   }
 
-  public function delete(Request $request, Params $param): Response
+  public function delete(Request $request, Params $param, EntityManagerInterface $entityManager): Response
   {
     if ($this->isCsrfTokenValid('delete' . $param->getId(), $request->request->get('_token'))) {
-      $entityManager = $this->getDoctrine()->getManager();
       $entityManager->remove($param);
       $entityManager->flush();
     }

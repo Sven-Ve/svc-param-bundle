@@ -134,12 +134,12 @@ class Params
     if (!$this->value) {
       return null;
     }
-    return DateTime::createFromFormat(static::DATETIMEFORMAT, $this->value);
+    return DateTime::createFromFormat(self::DATETIMEFORMAT, $this->value);
   }
 
   public function setValueDateTime(DateTime $val)
   {
-    $this->value = $val->format(static::DATETIMEFORMAT);
+    $this->value = $val->format(self::DATETIMEFORMAT);
   }
 
   public function getValueDate(): ?DateTimeInterface
@@ -147,12 +147,12 @@ class Params
     if (!$this->value) {
       return null;
     }
-    return DateTime::createFromFormat(static::DATEFORMAT, $this->value);
+    return DateTime::createFromFormat(self::DATEFORMAT, $this->value);
   }
 
   public function setValueDate(DateTimeInterface $val)
   {
-    $this->value = $val->format(static::DATEFORMAT);
+    $this->value = $val->format(self::DATEFORMAT);
   }
 
   public function formatValue(): ?string

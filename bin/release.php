@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "1.1.1";
-$message = "ready for symfony 5.4 and 6.0 (fix)";
+$version = "3.0.0";
+$message = "runs only with symfony 5.4 and >6 and php 8";
 
 file_put_contents("CHANGELOG.md", "\n\n## Version " . $version, FILE_APPEND);
 file_put_contents("CHANGELOG.md", "\n*" . date("r") . "*", FILE_APPEND);

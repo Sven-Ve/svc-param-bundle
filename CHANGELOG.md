@@ -39,3 +39,8 @@
 ## Version 1.1.1
 *Wed, 27 Apr 2022 16:16:12 +0000*
 - ready for symfony 5.4 and 6.0 (fix)
+
+
+## Version 3.0.0
+*Sat, 30 Apr 2022 19:29:57 +0000*
+- runs only with symfony 5.4 and >6 and php 8

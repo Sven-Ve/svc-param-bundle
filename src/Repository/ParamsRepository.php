@@ -24,9 +24,6 @@ class ParamsRepository extends ServiceEntityRepository
 
   /**
    * get a param record or null if not exists
-   *
-   * @param string $name
-   * @return Params|null
    */
   private function getEntity(string $name): ?Params
   {
@@ -36,10 +33,7 @@ class ParamsRepository extends ServiceEntityRepository
   /**
    * private function to create a param record or get it, if exists
    *
-   * @param string $name
-   * @param integer|null $type
    * @param string|null $comment the comment for the param record, only set during param record creation
-   * @return Params
    */
   private function getOrCreateEntity(string $name, ?int $type = Params::TYPE_STRING, ?string $comment = null): Params
   {
@@ -56,7 +50,6 @@ class ParamsRepository extends ServiceEntityRepository
   /**
    * save the param record
    *
-   * @param Params $entity
    * @return void
    */
   private function saveEntity(Params $entity)
@@ -85,7 +78,6 @@ class ParamsRepository extends ServiceEntityRepository
    * set a DateTime parameter
    *
    * @param string $name parameter name
-   * @param DateTime $val
    * @param string|null $comment the comment for the param record, only set during param record creation
    * @return void
    */
@@ -115,7 +107,6 @@ class ParamsRepository extends ServiceEntityRepository
    * set a boolean parameter
    *
    * @param string $name parameter name
-   * @param bool $val
    * @param string|null $comment the comment for the param record, only set during param record creation
    * @return void
    */
@@ -145,7 +136,6 @@ class ParamsRepository extends ServiceEntityRepository
    * get a DateTimeParam
    *
    * @param string $name parameter name
-   * @return DateTime|null
    */
   public function getDateTime(string $name): ?DateTime
   {
@@ -160,7 +150,6 @@ class ParamsRepository extends ServiceEntityRepository
    * get a Date param
    *
    * @param string $name parameter name
-   * @return DateTimeInterface|null
    */
   public function getDate(string $name): ?DateTimeInterface
   {
@@ -173,9 +162,6 @@ class ParamsRepository extends ServiceEntityRepository
 
   /**
    * get a boolean parameter
-   *
-   * @param string $name
-   * @return boolean|null
    */
   public function getBool(string $name): ?bool
   {

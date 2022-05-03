@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "3.0.0";
-$message = "runs only with symfony 5.4 and >6 and php 8";
+$version = "3.0.1";
+$message = "run php-cs-fixer, ignore (wrong) phpstan-warning";
 
 file_put_contents("CHANGELOG.md", "\n\n## Version " . $version, FILE_APPEND);
 file_put_contents("CHANGELOG.md", "\n*" . date("r") . "*", FILE_APPEND);

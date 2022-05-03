@@ -44,3 +44,8 @@
 ## Version 3.0.0
 *Sat, 30 Apr 2022 19:29:57 +0000*
 - runs only with symfony 5.4 and >6 and php 8
+
+
+## Version 3.0.1
+*Tue, 03 May 2022 20:32:55 +0000*
+- run php-cs-fixer, ignore (wrong) phpstan-warning

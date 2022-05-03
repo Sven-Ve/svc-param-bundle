@@ -52,7 +52,7 @@ class ParamsRepository extends ServiceEntityRepository
    *
    * @return void
    */
-  private function saveEntity(Params $entity)
+  private function saveEntity(Params $entity): void
   {
     $entityManager = $this->getEntityManager();
     $entityManager->persist($entity);
@@ -67,7 +67,7 @@ class ParamsRepository extends ServiceEntityRepository
    * @param string|null $comment the comment for the param record, only set during param record creation
    * @return void
    */
-  public function setParam(string $name, $val, ?string $comment = null)
+  public function setParam(string $name, $val, ?string $comment = null): void
   {
     $entity = $this->getOrCreateEntity($name, Params::TYPE_STRING, $comment);
     $entity->setValue($val);
@@ -81,7 +81,7 @@ class ParamsRepository extends ServiceEntityRepository
    * @param string|null $comment the comment for the param record, only set during param record creation
    * @return void
    */
-  public function setDateTime(string $name, DateTime $val, ?string $comment = null)
+  public function setDateTime(string $name, DateTime $val, ?string $comment = null): void
   {
     $entity = $this->getOrCreateEntity($name, Params::TYPE_DATETIME, $comment);
     $entity->setValueDateTime($val);
@@ -96,7 +96,7 @@ class ParamsRepository extends ServiceEntityRepository
    * @param string|null $comment the comment for the param record, only set during param record creation
    * @return void
    */
-  public function setDate(string $name, DateTimeInterface $val, ?string $comment = null)
+  public function setDate(string $name, DateTimeInterface $val, ?string $comment = null): void
   {
     $entity = $this->getOrCreateEntity($name, Params::TYPE_DATE, $comment);
     $entity->setValueDate($val);
@@ -110,7 +110,7 @@ class ParamsRepository extends ServiceEntityRepository
    * @param string|null $comment the comment for the param record, only set during param record creation
    * @return void
    */
-  public function setBool(string $name, bool $val, ?string $comment = null)
+  public function setBool(string $name, bool $val, ?string $comment = null): void
   {
     $entity = $this->getOrCreateEntity($name, Params::TYPE_BOOL, $comment);
     $entity->setValueBool($val);

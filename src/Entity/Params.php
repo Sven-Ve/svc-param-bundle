@@ -9,7 +9,6 @@ use Svc\ParamBundle\Repository\ParamsRepository;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/** @phpstan-ignore-next-line */
 #[ORM\Entity(repositoryClass: ParamsRepository::class)]
 #[UniqueEntity(fields: ['name'], message: 'Parameter already exists.')]
 class Params
@@ -28,23 +27,23 @@ class Params
   ];
 
   #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
-    private $id;
+  #[ORM\GeneratedValue]
+  #[ORM\Column()]
+  private ?int $id = null;
 
-  #[ORM\Column(type: 'string', length: 30, unique: true)]
-    #[Assert\NotBlank]
-    #[Assert\Length(min: 3, max: 30, minMessage: 'Your parameter name must be at least {{ limit }} characters long', maxMessage: 'Your parameter name cannot be longer than {{ limit }} characters')]
-    private $name;
+  #[ORM\Column(length: 30, unique: true)]
+  #[Assert\NotBlank]
+  #[Assert\Length(min: 3, max: 30, minMessage: 'Your parameter name must be at least {{ limit }} characters long', maxMessage: 'Your parameter name cannot be longer than {{ limit }} characters')]
+  private ?string $name = null;
 
-  #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $value;
+  #[ORM\Column(nullable: true)]
+  private ?string $value = null;
 
   #[ORM\Column(type: 'smallint')]
-    private int $paramType = self::TYPE_STRING;
+  private int $paramType = self::TYPE_STRING;
 
-  #[ORM\Column(type: 'string', length: 80, nullable: true)]
-    private $comment;
+  #[ORM\Column(length: 80, nullable: true)]
+  private ?string $comment = null;
 
   public function __construct($name = null, $val = null)
   {
@@ -147,7 +146,7 @@ class Params
 
     return match ($this->paramType) {
       self::TYPE_BOOL => $this->getValueBool() ? 'true' : 'false',
-          default => $this->value,
+      default => $this->value,
     };
   }
 

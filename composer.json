@@ -36,6 +36,6 @@
     },
     "scripts": {
         "test": "vendor/bin/simple-phpunit",
-        "phpstan": "vendor/bin/phpstan analyse src/ --level 5 -c .phpstan.neon"
+        "phpstan": "vendor/bin/phpstan analyse src/ --level 5"
     }
 }

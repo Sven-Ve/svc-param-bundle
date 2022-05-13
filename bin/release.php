@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-$version = "3.0.1";
+$version = "3.0.2";
 $message = "run php-cs-fixer, ignore (wrong) phpstan-warning";
 
 echo("Running phpstan:\n");

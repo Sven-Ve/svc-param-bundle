@@ -54,3 +54,8 @@
 ## Version 3.0.1
 *Fri, 13 May 2022 20:43:19 +0000*
 - run php-cs-fixer, ignore (wrong) phpstan-warning
+
+
+## Version 3.0.2
+*Fri, 13 May 2022 20:43:29 +0000*
+- run php-cs-fixer, ignore (wrong) phpstan-warning

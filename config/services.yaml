@@ -1,0 +1,8 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Svc\ParamBundle\Controller\ParamsController:
+  Svc\ParamBundle\Repository\ParamsRepository:

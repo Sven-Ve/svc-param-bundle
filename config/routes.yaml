@@ -1,0 +1,7 @@
+svc_param_index:
+  path: /
+  controller: Svc\ParamBundle\Controller\ParamsController::index
+
+svc_param_edit:
+  path: /{id}
+  controller: Svc\ParamBundle\Controller\ParamsController::edit

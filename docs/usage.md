@@ -21,7 +21,6 @@ _svc_param:
 ![Param editor interface](images/ParameterEdit.png "Param editor interface")
 
 
-
 ## Set or get params
 
 ### Set

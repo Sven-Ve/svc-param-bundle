@@ -109,7 +109,7 @@ class SvcParamTestingKernel extends Kernel
    */
   protected function configureRoutes(RoutingConfigurator $routes)
   {
-    $routes->import(__DIR__ . '/../src/Resources/config/routes.xml')->prefix('/svc-param/{_locale}');
+    $routes->import(__DIR__ . '/../config/routes.yaml')->prefix('/svc-param/{_locale}');
   }
 
   protected function configureContainer(ContainerBuilder $c, LoaderInterface $loader)

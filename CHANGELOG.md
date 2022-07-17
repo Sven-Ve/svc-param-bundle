@@ -59,3 +59,8 @@
 ## Version 3.0.2
 *Fri, 13 May 2022 20:43:29 +0000*
 - run php-cs-fixer, ignore (wrong) phpstan-warning
+
+
+## Version 4.0.0
+*Sun, 17 Jul 2022 19:49:52 +0000*
+- build with Symfony 6.1 bundle features, runs only with symfony 6.1

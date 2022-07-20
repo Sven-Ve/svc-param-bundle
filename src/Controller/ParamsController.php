@@ -13,6 +13,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ParamsController extends AbstractController
 {
+  public function __construct(private bool $enableDeleteParam)
+  {
+  }
+
   public function index(ParamsRepository $paramsRepository): Response
   {
     try {
@@ -24,6 +28,7 @@ class ParamsController extends AbstractController
 
     return $this->render('@SvcParam/params/index.html.twig', [
       'params' => $params,
+      'enableDeleteParam' => $this->enableDeleteParam,
     ]);
   }
 
@@ -51,6 +56,6 @@ class ParamsController extends AbstractController
       $entityManager->flush();
     }
 
-    return $this->redirectToRoute('params_index');
+    return $this->redirectToRoute('svc_param_index');
   }
 }

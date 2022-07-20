@@ -64,3 +64,8 @@
 ## Version 4.0.0
 *Sun, 17 Jul 2022 19:49:52 +0000*
 - build with Symfony 6.1 bundle features, runs only with symfony 6.1
+
+
+## Version 4.1.0
+*Wed, 20 Jul 2022 18:50:24 +0000*
+- add an EasyAdmin Crud controller, add parameter deletion (when enabled)

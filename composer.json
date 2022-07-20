@@ -20,6 +20,9 @@
         "symfony/form": "^6.1",
         "symfony/yaml": "^6.1"
     },
+    "suggest": {
+        "easycorp/easyadmin-bundle": "If the EasyAdmin param management page is to be used"
+    },
     "autoload": {
         "psr-4": {
             "Svc\\ParamBundle\\": "src/"
@@ -37,6 +40,6 @@
     },
     "scripts": {
         "test": "vendor/bin/simple-phpunit",
-        "phpstan": "vendor/bin/phpstan analyse src/ --level 5"
+        "phpstan": "vendor/bin/phpstan analyse src/ --level 5 -c .phpstan.neon"
     }
 }

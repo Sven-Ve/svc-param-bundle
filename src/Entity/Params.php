@@ -100,7 +100,7 @@ class Params
       return null;
     }
 
-    return $this->value == '1' ? true : false;
+    return $this->value == '1';
   }
 
   public function setValueBool(bool $val): self
@@ -119,7 +119,7 @@ class Params
     return DateTime::createFromFormat(self::DATETIMEFORMAT, $this->value);
   }
 
-  public function setValueDateTime(DateTime $val)
+  public function setValueDateTime(DateTime $val): void
   {
     $this->value = $val->format(self::DATETIMEFORMAT);
   }
@@ -133,7 +133,7 @@ class Params
     return DateTime::createFromFormat(self::DATEFORMAT, $this->value);
   }
 
-  public function setValueDate(DateTimeInterface $val)
+  public function setValueDate(DateTimeInterface $val): void
   {
     $this->value = $val->format(self::DATEFORMAT);
   }
@@ -169,5 +169,15 @@ class Params
     $this->comment = $comment;
 
     return $this;
+  }
+
+  public static function getTypesForChoices(): array
+  {
+    $choices = [];
+    foreach (self::TYPE_LIST as $key => $name) {
+      $choices[$name] = $key;
+    }
+
+    return $choices;
   }
 }

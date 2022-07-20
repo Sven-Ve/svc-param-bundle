@@ -1,0 +1,9 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{# @var field \EasyCorp\Bundle\EasyAdminBundle\Dto\FieldDto #}
+{# @var entity \EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto #}
+{# entity.instance.paramType #}
+{% if entity.instance.paramType == 2 %}
+  {{ field.value ? "true" : "false" }}
+{% else %}
+  {{ field.formattedValue }}
+{% endif %}

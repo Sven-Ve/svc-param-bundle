@@ -9,17 +9,41 @@ Create table (run `bin/console doctrine:schema:update --force`) or create a migr
 ```yaml
 # /config/routes/_svc_param.yaml
 _svc_param:
-    resource: '@SvcParamBundle/src/Resources/config/routes.xml'
+    resource: '@SvcParamBundle/config/routes.yaml'
     prefix: /_svc_param/{_locale}
     requirements: {"_locale": "%app.supported_locales%"}
 ```
 
+## Parameter
+```yaml
+#config/packages/svc_param.yaml
+svc_param:
 
-## Paths
+    # Should the deletion of parameters be allowed in the user interface
+    enableDeleteParam:    false
+```
+
+## User interface
+
+### Classic (Twig based)
 - integrate the param editor via path "svc_param_index"
 
 ![Param editor interface](images/ParameterEdit.png "Param editor interface")
 
+### EasyAdmin based
+
+```php
+use Svc\ParamBundle\Entity\Params;
+
+class DashboardController extends AbstractDashboardController
+{
+  public function configureMenuItems(): iterable
+  {
+    ...
+    yield MenuItem::linkToCrud('Params', 'fa-solid fa-paragraph', Params::class);
+    ...
+  }
+```
 
 ## Set or get params
 

@@ -6,3 +6,4 @@ services:
 
   Svc\ParamBundle\Controller\ParamsController:
   Svc\ParamBundle\Repository\ParamsRepository:
+  Svc\ParamBundle\Controller\EaParamsCrudController:

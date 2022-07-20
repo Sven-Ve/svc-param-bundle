@@ -11,25 +11,19 @@ class ParamFormTest extends TypeTestCase
   /**
    * @test
    */
-  public function testFormIsSubmitedSuccessfully()
+  public function testFormIsSubmittedSuccessfully()
   {
     $this->assertTrue(true);
-    return;
-    
-    $model = new Params('testmdod','qwe');
-    
-    $form = $this->factory->create(ParamsType::class, $model, ['dataType' => Params::TYPE_BOOL ]);
+  //  return;
 
-    $param = new Params('testBool');
-    $param->setValueBool(true);
-    $form->submit($param);
+    $model = new Params('testBool','Input');
+    $model->setParamType(Params::TYPE_STRING);
 
-//    dump($form->getData());
-    dump($model);
-    dump($param);
+    $form = $this->factory->create(ParamsType::class, $model);
+
+    $form->submit(['Value' => 'Output']);
 
     $this->assertTrue($form->isSynchronized());
-    $this->assertSame('testBool', $form->getData()['name']);
+    $this->assertSame('Output', $form->getData()->getValue());
   }
-
 }

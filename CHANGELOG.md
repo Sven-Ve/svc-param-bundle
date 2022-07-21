@@ -69,3 +69,8 @@
 ## Version 4.1.0
 *Wed, 20 Jul 2022 18:50:24 +0000*
 - add an EasyAdmin Crud controller, add parameter deletion (when enabled)
+
+
+## Version 4.1.1
+*Thu, 21 Jul 2022 18:34:35 +0000*
+- licence year update

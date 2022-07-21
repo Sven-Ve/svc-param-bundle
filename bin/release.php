@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "4.1.0";
-$message = "add an EasyAdmin Crud controller, add parameter deletion (when enabled)";
+$version = "4.1.1";
+$message = "licence year update";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

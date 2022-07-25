@@ -53,6 +53,7 @@ you have four functions to set params:
 * ParamsRepository->setDateTime for a DateTime parameter
 * ParamsRepository->setDate for a Date parameter
 * ParamsRepository->setBool for a bool parameter
+* ParamsRepository->setInteger for a integer parameter
 
 <br />
 each function use the same syntax (as exemple the setter for a string):
@@ -77,15 +78,16 @@ you have four functions to get params:
 * ParamsRepository->getDateTime for a DateTime parameter
 * ParamsRepository->getDate for a Date parameter
 * ParamsRepository->getBool for a bool parameter
+* ParamsRepository->getInteger for an integer parameter
 
 <br />
-each function use the same syntax (as exemple the getter for a string):
+each function use the same syntax (as example the getter for a string):
 
 ```php
 use Svc\ParamBundle\Repository\ParamsRepository;
 ...
   /**
-   * get a value for a sring param (or null, if not exists)
+   * get a value for a string param (or null, if not exists)
    *
    * @param string $name parameter name
    * @return string|null return value as string or null if not exists

@@ -74,3 +74,8 @@
 ## Version 4.1.1
 *Thu, 21 Jul 2022 18:34:35 +0000*
 - licence year update
+
+
+## Version 4.2.0
+*Mon, 25 Jul 2022 17:37:43 +0000*
+- add setter/getter for integer

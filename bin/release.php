@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "4.1.1";
-$message = "licence year update";
+$version = "4.2.0";
+$message = "add setter/getter for integer";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

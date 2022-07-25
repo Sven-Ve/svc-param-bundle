@@ -112,7 +112,20 @@ class ParamsRepository extends ServiceEntityRepository
   }
 
   /**
-   * get a value for a sring param (or null, if not exists).
+   * set an integer parameter.
+   *
+   * @param string $name parameter name
+   * @param int    $val  the integer value
+   */
+  public function setInteger(string $name, int $val, ?string $comment = null): void
+  {
+    $entity = $this->getOrCreateEntity($name, Params::TYPE_INTEGER, $comment);
+    $entity->setValue((string) $val);
+    $this->saveEntity($entity);
+  }
+
+  /**
+   * get a value for a string param (or null, if not exists).
    *
    * @param string $name parameter name
    *
@@ -169,5 +182,18 @@ class ParamsRepository extends ServiceEntityRepository
     }
 
     return $entity->getValueBool();
+  }
+
+  /**
+   * get a integer parameter.
+   */
+  public function getInteger(string $name, ?int $default = null): ?int
+  {
+    $entity = $this->getEntity($name);
+    if (!$entity) {
+      return $default;
+    }
+
+    return (int) $entity->getValue();
   }
 }

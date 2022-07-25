@@ -19,11 +19,13 @@ class Params
   public const TYPE_BOOL = 2;
   public const TYPE_DATETIME = 3;
   public const TYPE_DATE = 4;
+  public const TYPE_INTEGER = 5;
   public const TYPE_LIST = [
     self::TYPE_STRING => 'string',
     self::TYPE_BOOL => 'boolean',
     self::TYPE_DATETIME => 'datetime',
     self::TYPE_DATE => 'date',
+    self::TYPE_INTEGER => 'integer',
   ];
 
   #[ORM\Id]

@@ -1,13 +1,13 @@
 #!/usr/bin/env php
 <?php
 
-$version = "4.2.0";
-$message = "add setter/getter for integer";
+$version = "4.2.1";
+$message = "small code improvements";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);
 if ($res>0) {
-  echo("\nError during execution phpstan. Releasing cannceled.\n");
+  echo("\nError during execution phpstan. Releasing canceled.\n");
   return 1;
 }
 

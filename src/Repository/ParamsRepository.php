@@ -61,10 +61,9 @@ class ParamsRepository extends ServiceEntityRepository
    * set a string parameter.
    *
    * @param string      $name    parameter name
-   * @param string      $val
    * @param string|null $comment the comment for the param record, only set during param record creation
    */
-  public function setParam(string $name, $val, ?string $comment = null): void
+  public function setParam(string $name, string $val, ?string $comment = null): void
   {
     $entity = $this->getOrCreateEntity($name, Params::TYPE_STRING, $comment);
     $entity->setValue($val);
@@ -134,11 +133,8 @@ class ParamsRepository extends ServiceEntityRepository
   public function getParam(string $name): ?string
   {
     $entity = $this->getEntity($name);
-    if (!$entity) {
-      return null;
-    }
 
-    return $entity->getValue();
+    return $entity?->getValue();
   }
 
   /**
@@ -149,11 +145,8 @@ class ParamsRepository extends ServiceEntityRepository
   public function getDateTime(string $name): ?DateTime
   {
     $entity = $this->getEntity($name);
-    if (!$entity) {
-      return null;
-    }
 
-    return $entity->getValueDateTime();
+    return $entity?->getValueDateTime();
   }
 
   /**
@@ -164,11 +157,8 @@ class ParamsRepository extends ServiceEntityRepository
   public function getDate(string $name): ?DateTimeInterface
   {
     $entity = $this->getEntity($name);
-    if (!$entity) {
-      return null;
-    }
 
-    return $entity->getValueDate();
+    return $entity?->getValueDate();
   }
 
   /**
@@ -177,11 +167,8 @@ class ParamsRepository extends ServiceEntityRepository
   public function getBool(string $name): ?bool
   {
     $entity = $this->getEntity($name);
-    if (!$entity) {
-      return null;
-    }
 
-    return $entity->getValueBool();
+    return $entity?->getValueBool();
   }
 
   /**

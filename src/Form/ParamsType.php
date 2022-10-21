@@ -3,6 +3,7 @@
 namespace Svc\ParamBundle\Form;
 
 use Svc\ParamBundle\Entity\Params;
+use Svc\ParamBundle\Enum\ParamType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -15,26 +16,26 @@ class ParamsType extends AbstractType
 {
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
-    if ($options['dataType'] == Params::TYPE_BOOL) {
+    if ($options['dataType'] == ParamType::BOOL) {
       $builder
         ->add('ValueBool', CheckboxType::class, [
           'required' => false,
           'label' => 'Value',
         ]);
-    } elseif ($options['dataType'] == Params::TYPE_DATETIME) {
+    } elseif ($options['dataType'] == ParamType::DATETIME) {
       $builder
         ->add('ValueDateTime', DateTimeType::class, [
           'date_widget' => 'single_text',
           'time_widget' => 'single_text',
           'label' => 'Date & Time',
         ]);
-    } elseif ($options['dataType'] == Params::TYPE_DATE) {
+    } elseif ($options['dataType'] == ParamType::DATE) {
       $builder
         ->add('ValueDate', DateType::class, [
           'widget' => 'single_text',
           'label' => 'Date',
         ]);
-    } elseif ($options['dataType'] == Params::TYPE_INTEGER) {
+    } elseif ($options['dataType'] == ParamType::INTEGER) {
       $builder
         ->add('Value', IntegerType::class, [
           'attr' => ['autofocus' => true],

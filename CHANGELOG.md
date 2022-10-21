@@ -84,3 +84,8 @@
 ## Version 4.2.1
 *Mon, 25 Jul 2022 19:47:23 +0000*
 - small code improvements
+
+
+## Version 5.0.0
+*Fri, 21 Oct 2022 19:14:40 +0000*
+- change ParamType to enum

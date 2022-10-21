@@ -3,6 +3,7 @@
 namespace Svc\ParamBundle\Tests\Form;
 
 use Svc\ParamBundle\Entity\Params;
+use Svc\ParamBundle\Enum\ParamType;
 use Svc\ParamBundle\Form\ParamsType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
@@ -17,7 +18,7 @@ class ParamFormTest extends TypeTestCase
   //  return;
 
     $model = new Params('testBool','Input');
-    $model->setParamType(Params::TYPE_STRING);
+    $model->setParamType(ParamType::STRING);
 
     $form = $this->factory->create(ParamsType::class, $model);
 

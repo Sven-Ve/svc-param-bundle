@@ -6,13 +6,14 @@ namespace Svc\ParamBundle\Tests\Entity;
 
 use PHPUnit\Framework\TestCase;
 use Svc\ParamBundle\Entity\Params;
+use Svc\ParamBundle\Enum\ParamType;
 
 class ParamTest extends TestCase
 {
 
   public function testBoolean() {
     $param = new Params('test', null);
-    $param->setParamType(Params::TYPE_BOOL);
+    $param->setParamType(ParamType::BOOL);
     $this->assertNull($param->getValueBool());
 
     $param->setValueBool(true);

@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "4.2.1";
-$message = "small code improvements";
+$version = "5.0.0";
+$message = "change ParamType to enum";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

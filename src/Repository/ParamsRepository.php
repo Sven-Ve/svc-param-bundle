@@ -7,6 +7,7 @@ use DateTimeInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Svc\ParamBundle\Entity\Params;
+use Svc\ParamBundle\Enum\ParamType;
 
 /**
  * @method Params|null find($id, $lockMode = null, $lockVersion = null)
@@ -34,7 +35,7 @@ class ParamsRepository extends ServiceEntityRepository
    *
    * @param string|null $comment the comment for the param record, only set during param record creation
    */
-  private function getOrCreateEntity(string $name, ?int $type = Params::TYPE_STRING, ?string $comment = null): Params
+  private function getOrCreateEntity(string $name, ?ParamType $type = ParamType::STRING, ?string $comment = null): Params
   {
     $entity = $this->getEntity($name);
     if ($entity) {
@@ -65,7 +66,7 @@ class ParamsRepository extends ServiceEntityRepository
    */
   public function setParam(string $name, string $val, ?string $comment = null): void
   {
-    $entity = $this->getOrCreateEntity($name, Params::TYPE_STRING, $comment);
+    $entity = $this->getOrCreateEntity($name, ParamType::STRING, $comment);
     $entity->setValue($val);
     $this->saveEntity($entity);
   }
@@ -78,7 +79,7 @@ class ParamsRepository extends ServiceEntityRepository
    */
   public function setDateTime(string $name, DateTime $val, ?string $comment = null): void
   {
-    $entity = $this->getOrCreateEntity($name, Params::TYPE_DATETIME, $comment);
+    $entity = $this->getOrCreateEntity($name, ParamType::DATETIME, $comment);
     $entity->setValueDateTime($val);
     $this->saveEntity($entity);
   }
@@ -92,7 +93,7 @@ class ParamsRepository extends ServiceEntityRepository
    */
   public function setDate(string $name, DateTimeInterface $val, ?string $comment = null): void
   {
-    $entity = $this->getOrCreateEntity($name, Params::TYPE_DATE, $comment);
+    $entity = $this->getOrCreateEntity($name, ParamType::DATE, $comment);
     $entity->setValueDate($val);
     $this->saveEntity($entity);
   }
@@ -105,7 +106,7 @@ class ParamsRepository extends ServiceEntityRepository
    */
   public function setBool(string $name, bool $val, ?string $comment = null): void
   {
-    $entity = $this->getOrCreateEntity($name, Params::TYPE_BOOL, $comment);
+    $entity = $this->getOrCreateEntity($name, ParamType::BOOL, $comment);
     $entity->setValueBool($val);
     $this->saveEntity($entity);
   }
@@ -118,7 +119,7 @@ class ParamsRepository extends ServiceEntityRepository
    */
   public function setInteger(string $name, int $val, ?string $comment = null): void
   {
-    $entity = $this->getOrCreateEntity($name, Params::TYPE_INTEGER, $comment);
+    $entity = $this->getOrCreateEntity($name, ParamType::INTEGER, $comment);
     $entity->setValue((string) $val);
     $this->saveEntity($entity);
   }

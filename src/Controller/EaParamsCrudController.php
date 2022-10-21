@@ -44,7 +44,8 @@ class EaParamsCrudController extends AbstractCrudController
       ->setTemplatePath('@SvcParam/ea/fields/ea-param-value-field.html.twig');
     yield ChoiceField::new('paramType')
       ->setChoices(Params::getTypesForChoices())
-      ->setDisabled();
+      ->setDisabled()
+      ->hideOnForm();
     yield TextField::new('comment');
   }
 

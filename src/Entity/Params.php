@@ -5,6 +5,7 @@ namespace Svc\ParamBundle\Entity;
 use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Svc\ParamBundle\Enum\ParamType;
 use Svc\ParamBundle\Repository\ParamsRepository;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -15,18 +16,6 @@ class Params
 {
   private const DATETIMEFORMAT = 'Y-m-d H:i:s';
   private const DATEFORMAT = 'Y-m-d';
-  public const TYPE_STRING = 1;
-  public const TYPE_BOOL = 2;
-  public const TYPE_DATETIME = 3;
-  public const TYPE_DATE = 4;
-  public const TYPE_INTEGER = 5;
-  public const TYPE_LIST = [
-    self::TYPE_STRING => 'string',
-    self::TYPE_BOOL => 'boolean',
-    self::TYPE_DATETIME => 'datetime',
-    self::TYPE_DATE => 'date',
-    self::TYPE_INTEGER => 'integer',
-  ];
 
   #[ORM\Id]
   #[ORM\GeneratedValue]
@@ -41,8 +30,8 @@ class Params
   #[ORM\Column(nullable: true)]
   private ?string $value = null;
 
-  #[ORM\Column(type: 'smallint')]
-  private int $paramType = self::TYPE_STRING;
+  #[ORM\Column(type: 'smallint', enumType: ParamType::class)]
+  private ParamType $paramType = ParamType::STRING;
 
   #[ORM\Column(length: 80, nullable: true)]
   private ?string $comment = null;
@@ -84,12 +73,12 @@ class Params
     return $this;
   }
 
-  public function getParamType(): int
+  public function getParamType(): ParamType
   {
     return $this->paramType;
   }
 
-  public function setParamType(int $paramType): self
+  public function setParamType(ParamType $paramType): self
   {
     $this->paramType = $paramType;
 
@@ -147,18 +136,14 @@ class Params
     }
 
     return match ($this->paramType) {
-      self::TYPE_BOOL => $this->getValueBool() ? 'true' : 'false',
+      ParamType::BOOL => $this->getValueBool() ? 'true' : 'false',
       default => $this->value,
     };
   }
 
   public function getTypeText(): string
   {
-    if (array_key_exists($this->paramType, self::TYPE_LIST)) {
-      return self::TYPE_LIST[$this->paramType];
-    }
-
-    return 'n/a';
+    return $this->paramType->label();
   }
 
   public function getComment(): ?string
@@ -176,8 +161,8 @@ class Params
   public static function getTypesForChoices(): array
   {
     $choices = [];
-    foreach (self::TYPE_LIST as $key => $name) {
-      $choices[$name] = $key;
+    foreach (ParamType::cases() as $paramType) {
+      $choices[$paramType->label()] = $paramType->value;
     }
 
     return $choices;

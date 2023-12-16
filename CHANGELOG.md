@@ -89,3 +89,8 @@
 ## Version 5.0.0
 *Fri, 21 Oct 2022 19:14:40 +0000*
 - change ParamType to enum
+
+
+## Version 6.0.0
+*Sat, 16 Dec 2023 15:48:00 +0000*
+- ready for symfony 6.4 and 7

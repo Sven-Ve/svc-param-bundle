@@ -83,6 +83,8 @@ class SvcParamTestingKernel extends Kernel
         'orm' => [
           'auto_generate_proxy_classes' => true,
           'auto_mapping' => true,
+          'enable_lazy_ghost_objects' => true,
+          'report_fields_where_declared' => true
         ],
       ]);
 

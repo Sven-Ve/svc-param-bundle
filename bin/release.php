@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "6.0.0";
-$message = "ready for symfony 6.4 and 7";
+$version = "6.0.1";
+$message = "ready for symfony 6.4 and 7 - fixed test errors";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

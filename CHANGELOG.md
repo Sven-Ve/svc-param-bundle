@@ -1,21 +1,6 @@
 # Changelog
 
 
-## Version 0.0.1
-*Fri, 25 Jun 2021 17:24:40 +0000*
-- first internal test version
-
-
-## Version 0.1.0
-*Fri, 25 Jun 2021 17:27:52 +0000*
-- first version ready to test public
-
-
-## Version 0.1.1
-*Fri, 25 Jun 2021 17:57:48 +0000*
-- fixed some typos, added image to doc
-
-
 ## Version 1.0.0
 *Fri, 25 Jun 2021 21:29:31 +0000*
 - ready to go production
@@ -94,3 +79,8 @@
 ## Version 6.0.0
 *Sat, 16 Dec 2023 15:48:00 +0000*
 - ready for symfony 6.4 and 7
+
+
+## Version 6.0.1
+*Sun, 17 Dec 2023 18:29:37 +0000*
+- ready for symfony 6.4 and 7 - fixed test errors

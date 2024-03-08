@@ -2,8 +2,6 @@
 
 namespace Svc\ParamBundle\Entity;
 
-use DateTime;
-use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Svc\ParamBundle\Enum\ParamType;
 use Svc\ParamBundle\Repository\ParamsRepository;
@@ -101,30 +99,30 @@ class Params
     return $this;
   }
 
-  public function getValueDateTime(): ?DateTime
+  public function getValueDateTime(): ?\DateTime
   {
     if (!$this->value) {
       return null;
     }
 
-    return DateTime::createFromFormat(self::DATETIMEFORMAT, $this->value);
+    return \DateTime::createFromFormat(self::DATETIMEFORMAT, $this->value);
   }
 
-  public function setValueDateTime(DateTime $val): void
+  public function setValueDateTime(\DateTime $val): void
   {
     $this->value = $val->format(self::DATETIMEFORMAT);
   }
 
-  public function getValueDate(): ?DateTimeInterface
+  public function getValueDate(): ?\DateTimeInterface
   {
     if (!$this->value) {
       return null;
     }
 
-    return DateTime::createFromFormat(self::DATEFORMAT, $this->value);
+    return \DateTime::createFromFormat(self::DATEFORMAT, $this->value);
   }
 
-  public function setValueDate(DateTimeInterface $val): void
+  public function setValueDate(\DateTimeInterface $val): void
   {
     $this->value = $val->format(self::DATEFORMAT);
   }

@@ -2,8 +2,6 @@
 
 namespace Svc\ParamBundle;
 
-use function dirname;
-
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -13,7 +11,7 @@ class SvcParamBundle extends AbstractBundle
 {
   public function getPath(): string
   {
-    return dirname(__DIR__);
+    return \dirname(__DIR__);
   }
 
   public function configure(DefinitionConfigurator $definition): void

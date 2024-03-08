@@ -84,3 +84,8 @@
 ## Version 6.0.1
 *Sun, 17 Dec 2023 18:29:37 +0000*
 - ready for symfony 6.4 and 7 - fixed test errors
+
+
+## Version 6.1.0
+*Fri, 08 Mar 2024 20:42:27 +0000*
+- runs with doctrin/orm ^3 too

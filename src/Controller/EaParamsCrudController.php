@@ -62,9 +62,9 @@ class EaParamsCrudController extends AbstractCrudController
     return $myActions;
   }
 
-//  public function configureAssets(Assets $assets): Assets
-//  {
-//    return parent::configureAssets($assets)
-//      ->addHtmlContentToBody("addHtmlContentToBody");
-//  }
+  //  public function configureAssets(Assets $assets): Assets
+  //  {
+  //    return parent::configureAssets($assets)
+  //      ->addHtmlContentToBody("addHtmlContentToBody");
+  //  }
 }

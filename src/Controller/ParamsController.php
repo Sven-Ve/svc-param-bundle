@@ -2,9 +2,8 @@
 
 namespace Svc\ParamBundle\Controller;
 
-//use Doctrine\DBAL\Exception\TableNotFoundException;
+// use Doctrine\DBAL\Exception\TableNotFoundException;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 use Svc\ParamBundle\Entity\Params;
 use Svc\ParamBundle\Form\ParamsType;
 use Svc\ParamBundle\Repository\ParamsRepository;
@@ -22,10 +21,10 @@ class ParamsController extends AbstractController
   {
     try {
       $params = $paramsRepository->findAll();
-    } catch (Exception) {
+    } catch (\Exception) {
       //      $this->addFlash('danger', 'Table "params" not found.');
       $params = null;
-    } 
+    }
 
     return $this->render('@SvcParam/params/index.html.twig', [
       'params' => $params,

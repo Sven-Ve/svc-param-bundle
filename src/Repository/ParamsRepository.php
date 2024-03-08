@@ -3,7 +3,6 @@
 namespace Svc\ParamBundle\Repository;
 
 use DateTime;
-use DateTimeInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Svc\ParamBundle\Entity\Params;
@@ -77,7 +76,7 @@ class ParamsRepository extends ServiceEntityRepository
    * @param string      $name    parameter name
    * @param string|null $comment the comment for the param record, only set during param record creation
    */
-  public function setDateTime(string $name, DateTime $val, ?string $comment = null): void
+  public function setDateTime(string $name, \DateTime $val, ?string $comment = null): void
   {
     $entity = $this->getOrCreateEntity($name, ParamType::DATETIME, $comment);
     $entity->setValueDateTime($val);
@@ -88,10 +87,10 @@ class ParamsRepository extends ServiceEntityRepository
    * set a Date parameter.
    *
    * @param string      $name    parameter name
-   * @param DateTime    $val
+   * @param \DateTime   $val
    * @param string|null $comment the comment for the param record, only set during param record creation
    */
-  public function setDate(string $name, DateTimeInterface $val, ?string $comment = null): void
+  public function setDate(string $name, \DateTimeInterface $val, ?string $comment = null): void
   {
     $entity = $this->getOrCreateEntity($name, ParamType::DATE, $comment);
     $entity->setValueDate($val);
@@ -143,7 +142,7 @@ class ParamsRepository extends ServiceEntityRepository
    *
    * @param string $name parameter name
    */
-  public function getDateTime(string $name): ?DateTime
+  public function getDateTime(string $name): ?\DateTime
   {
     $entity = $this->getEntity($name);
 
@@ -155,7 +154,7 @@ class ParamsRepository extends ServiceEntityRepository
    *
    * @param string $name parameter name
    */
-  public function getDate(string $name): ?DateTimeInterface
+  public function getDate(string $name): ?\DateTimeInterface
   {
     $entity = $this->getEntity($name);
 

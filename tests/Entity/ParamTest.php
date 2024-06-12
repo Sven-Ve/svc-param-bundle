@@ -28,4 +28,18 @@ class ParamTest extends TestCase
     $param->setValue("123");
     $this->assertEquals("123", $param->getValue());
   }
+
+  public function testReadonly() {
+    $param = new Params('test', null);
+    $param->setReadonly(true);
+    $this->assertTrue($param->isReadonly());
+  }
+
+  public function testComment() {
+    $param = new Params('test', null);
+    $param->setComment("123");
+
+    $this->assertEquals("123", $param->getComment());
+  }
+
 }

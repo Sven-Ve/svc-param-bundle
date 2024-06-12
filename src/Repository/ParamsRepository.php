@@ -34,15 +34,26 @@ class ParamsRepository extends ServiceEntityRepository
    *
    * @param string|null $comment the comment for the param record, only set during param record creation
    */
-  private function getOrCreateEntity(string $name, ?ParamType $type = ParamType::STRING, ?string $comment = null): Params
+  private function getOrCreateEntity(
+    string $name,
+    ?ParamType $type = ParamType::STRING,
+    ?string $comment = null,
+    ?bool $readonly = null): Params
   {
     $entity = $this->getEntity($name);
     if ($entity) {
+      if ($readonly !== null) {
+        $entity->setReadonly($readonly);
+      }
+
       return $entity;
     }
     $entity = new Params($name);
     $entity->setParamType($type);
     $entity->setComment($comment);
+    if ($readonly === true) {
+      $entity->setReadonly(true);
+    }
 
     return $entity;
   }
@@ -60,12 +71,13 @@ class ParamsRepository extends ServiceEntityRepository
   /**
    * set a string parameter.
    *
-   * @param string      $name    parameter name
-   * @param string|null $comment the comment for the param record, only set during param record creation
+   * @param string      $name     parameter name
+   * @param string|null $comment  the comment for the param record, only set during param record creation
+   * @param bool|null   $readonly disable editing in user interface
    */
-  public function setParam(string $name, string $val, ?string $comment = null): void
+  public function setParam(string $name, string $val, ?string $comment = null, ?bool $readonly = null): void
   {
-    $entity = $this->getOrCreateEntity($name, ParamType::STRING, $comment);
+    $entity = $this->getOrCreateEntity($name, ParamType::STRING, $comment, $readonly);
     $entity->setValue($val);
     $this->saveEntity($entity);
   }
@@ -73,12 +85,14 @@ class ParamsRepository extends ServiceEntityRepository
   /**
    * set a DateTime parameter.
    *
-   * @param string      $name    parameter name
-   * @param string|null $comment the comment for the param record, only set during param record creation
+   * @param string      $name     parameter name
+   * @param \DateTime   $val      the datetime value
+   * @param string|null $comment  the comment for the param record, only set during param record creation
+   * @param bool|null   $readonly disable editing in user interface
    */
-  public function setDateTime(string $name, \DateTime $val, ?string $comment = null): void
+  public function setDateTime(string $name, \DateTime $val, ?string $comment = null, ?bool $readonly = null): void
   {
-    $entity = $this->getOrCreateEntity($name, ParamType::DATETIME, $comment);
+    $entity = $this->getOrCreateEntity($name, ParamType::DATETIME, $comment, $readonly);
     $entity->setValueDateTime($val);
     $this->saveEntity($entity);
   }
@@ -86,13 +100,14 @@ class ParamsRepository extends ServiceEntityRepository
   /**
    * set a Date parameter.
    *
-   * @param string      $name    parameter name
-   * @param \DateTime   $val
-   * @param string|null $comment the comment for the param record, only set during param record creation
+   * @param string      $name     parameter name
+   * @param \DateTime   $val      the date value
+   * @param string|null $comment  the comment for the param record, only set during param record creation
+   * @param bool|null   $readonly disable editing in user interface
    */
-  public function setDate(string $name, \DateTimeInterface $val, ?string $comment = null): void
+  public function setDate(string $name, \DateTimeInterface $val, ?string $comment = null, ?bool $readonly = null): void
   {
-    $entity = $this->getOrCreateEntity($name, ParamType::DATE, $comment);
+    $entity = $this->getOrCreateEntity($name, ParamType::DATE, $comment, $readonly);
     $entity->setValueDate($val);
     $this->saveEntity($entity);
   }
@@ -100,12 +115,14 @@ class ParamsRepository extends ServiceEntityRepository
   /**
    * set a boolean parameter.
    *
-   * @param string      $name    parameter name
-   * @param string|null $comment the comment for the param record, only set during param record creation
+   * @param string      $name     parameter name
+   * @param bool        $val      the bool value
+   * @param string|null $comment  the comment for the param record, only set during param record creation
+   * @param bool|null   $readonly disable editing in user interface
    */
-  public function setBool(string $name, bool $val, ?string $comment = null): void
+  public function setBool(string $name, bool $val, ?string $comment = null, ?bool $readonly = null): void
   {
-    $entity = $this->getOrCreateEntity($name, ParamType::BOOL, $comment);
+    $entity = $this->getOrCreateEntity($name, ParamType::BOOL, $comment, $readonly);
     $entity->setValueBool($val);
     $this->saveEntity($entity);
   }
@@ -113,12 +130,14 @@ class ParamsRepository extends ServiceEntityRepository
   /**
    * set an integer parameter.
    *
-   * @param string $name parameter name
-   * @param int    $val  the integer value
+   * @param string      $name     parameter name
+   * @param int         $val      the integer value
+   * @param string|null $comment  the comment for the param record, only set during param record creation
+   * @param bool|null   $readonly disable editing in user interface
    */
-  public function setInteger(string $name, int $val, ?string $comment = null): void
+  public function setInteger(string $name, int $val, ?string $comment = null, ?bool $readonly = null): void
   {
-    $entity = $this->getOrCreateEntity($name, ParamType::INTEGER, $comment);
+    $entity = $this->getOrCreateEntity($name, ParamType::INTEGER, $comment, $readonly);
     $entity->setValue((string) $val);
     $this->saveEntity($entity);
   }

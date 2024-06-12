@@ -89,3 +89,8 @@
 ## Version 6.1.0
 *Fri, 08 Mar 2024 20:42:27 +0000*
 - runs with doctrin/orm ^3 too
+
+
+## Version 6.2.0
+*Wed, 12 Jun 2024 19:37:54 +0000*
+- added readonly parameter, needs schema update

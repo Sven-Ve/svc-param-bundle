@@ -64,12 +64,13 @@ use Svc\ParamBundle\Repository\ParamsRepository;
   /**
    * set a string parameter
    *
-   * @param string $name parameter name
-   * @param string $val
+   * @param string      $name parameter name
+   * @param string      $val
    * @param string|null $comment the comment for the param record, only set during param record creation
+   * @param bool|null   $readonly disable editing in user interface
    * @return void
    */
-  public function setParam(string $name, $val, ?string $comment = null)
+  public function setParam(string $name, $val, ?string $comment = null, ?bool $readonly = null)
 ```
 
 ### Get

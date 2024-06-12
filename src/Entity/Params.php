@@ -34,6 +34,9 @@ class Params
   #[ORM\Column(length: 80, nullable: true)]
   private ?string $comment = null;
 
+  #[ORM\Column(options: ['default' => false])]
+  private bool $readonly = false;
+
   public function __construct($name = null, $val = null)
   {
     if ($name) {
@@ -152,6 +155,18 @@ class Params
   public function setComment(?string $comment): self
   {
     $this->comment = $comment;
+
+    return $this;
+  }
+
+  public function isReadonly(): bool
+  {
+    return $this->readonly;
+  }
+
+  public function setReadonly(bool $readonly): static
+  {
+    $this->readonly = $readonly;
 
     return $this;
   }

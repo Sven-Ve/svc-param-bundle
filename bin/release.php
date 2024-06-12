@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "6.1.0";
-$message = "runs with doctrin/orm ^3 too";
+$version = "6.2.0";
+$message = "added readonly parameter, needs schema update";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

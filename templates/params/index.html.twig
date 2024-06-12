@@ -27,7 +27,9 @@
         <td>{{ param.formatValue }}</td>
         <td>{{ param.TypeText }}</td>
         <td>
-          <a href="{{ path('svc_param_edit', {'id': param.id}) }}">{% trans %}Edit{% endtrans %}</a>
+          {% if not param.readonly %}
+            <a href="{{ path('svc_param_edit', {'id': param.id}) }}">{% trans %}Edit{% endtrans %}</a>
+          {% endif %}
           {% if enableDeleteParam %}
             {% include('@SvcParam/params/_delete_form.html.twig') %}
           {% endif %}

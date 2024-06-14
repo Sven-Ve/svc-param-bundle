@@ -22,7 +22,10 @@ class ParamsController extends AbstractController
     try {
       $params = $paramsRepository->findAll();
     } catch (\Exception) {
-      //      $this->addFlash('danger', 'Table "params" not found.');
+      try {
+        $this->addFlash('danger', 'Table "params" not found or wrong structure.');
+      } catch (\Exception) {
+      }
       $params = null;
     }
 

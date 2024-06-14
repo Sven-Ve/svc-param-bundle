@@ -94,3 +94,8 @@
 ## Version 6.2.0
 *Wed, 12 Jun 2024 19:37:54 +0000*
 - added readonly parameter, needs schema update
+
+
+## Version 6.2.1
+*Fri, 14 Jun 2024 10:22:17 +0000*
+- add error message on param index page, if table not exists

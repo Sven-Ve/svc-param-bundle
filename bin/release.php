@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "6.2.0";
-$message = "added readonly parameter, needs schema update";
+$version = "6.2.1";
+$message = "add error message on param index page, if table not exists";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

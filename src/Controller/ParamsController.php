@@ -2,7 +2,6 @@
 
 namespace Svc\ParamBundle\Controller;
 
-// use Doctrine\DBAL\Exception\TableNotFoundException;
 use Doctrine\ORM\EntityManagerInterface;
 use Svc\ParamBundle\Entity\Params;
 use Svc\ParamBundle\Form\ParamsType;

@@ -3,16 +3,15 @@
 namespace Svc\ParamBundle\Tests\Controller;
 
 use Exception;
-use Svc\ParamBundle\Tests\SvcParamTestingKernel;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class ParamControllerTest extends KernelTestCase
 {
 
-  public function testParamIndex()
+  public function testParamIndex(): void
   {
-    $kernel = new SvcParamTestingKernel();
+    $kernel = self::bootKernel();
     $client = new KernelBrowser($kernel);
 
     try {

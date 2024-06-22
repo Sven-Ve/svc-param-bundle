@@ -1,5 +1,13 @@
 parameters:
+  level: 6
+  paths:
+    - bin/
+    - config/
+    - src/
+    - tests/
   ignoreErrors:
     - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition.*#'
+    - '#Method Svc\\ParamBundle\\Tests\\SvcParamTestingKernel::configureRoutes\(\) is unused.#'
+    - '#Class Svc\\ParamBundle\\Repository\\ParamsRepository extends generic class.*#'
   excludePaths:
     - 'src/Controller/EaParamsCrudController'

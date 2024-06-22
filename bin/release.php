@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "6.2.1";
-$message = "add error message on param index page, if table not exists";
+$version = "6.3.0";
+$message = "better testing kernel, phpstan level 6";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

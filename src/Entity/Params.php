@@ -37,7 +37,7 @@ class Params
   #[ORM\Column(options: ['default' => false])]
   private bool $readonly = false;
 
-  public function __construct($name = null, $val = null)
+  public function __construct(?string $name = null, ?string $val = null)
   {
     if ($name) {
       $this->setName($name);
@@ -171,6 +171,9 @@ class Params
     return $this;
   }
 
+  /**
+   * @return array<string, int>
+   */
   public static function getTypesForChoices(): array
   {
     $choices = [];

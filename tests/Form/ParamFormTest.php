@@ -12,7 +12,7 @@ class ParamFormTest extends TypeTestCase
   /**
    * @test
    */
-  public function testFormIsSubmittedSuccessfully()
+  public function testFormIsSubmittedSuccessfully(): void
   {
     $this->assertTrue(true);
   //  return;

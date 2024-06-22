@@ -11,7 +11,7 @@ use Svc\ParamBundle\Enum\ParamType;
 class ParamTest extends TestCase
 {
 
-  public function testBoolean() {
+  public function testBoolean(): void {
     $param = new Params('test', null);
     $param->setParamType(ParamType::BOOL);
     $this->assertNull($param->getValueBool());
@@ -21,7 +21,7 @@ class ParamTest extends TestCase
     $this->assertEquals('true', $param->formatValue());
   }
 
-  public function testString() {
+  public function testString(): void {
     $param = new Params('test', null);
     $this->assertNull($param->getValueBool());
 
@@ -29,13 +29,13 @@ class ParamTest extends TestCase
     $this->assertEquals("123", $param->getValue());
   }
 
-  public function testReadonly() {
+  public function testReadonly(): void {
     $param = new Params('test', null);
     $param->setReadonly(true);
     $this->assertTrue($param->isReadonly());
   }
 
-  public function testComment() {
+  public function testComment(): void {
     $param = new Params('test', null);
     $param->setComment("123");
 

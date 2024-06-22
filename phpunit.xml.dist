@@ -6,6 +6,9 @@
       <directory>./tests</directory>
     </testsuite>
   </testsuites>
+  <php>
+      <server name="KERNEL_CLASS" value="Svc\ParamBundle\Tests\SvcParamTestingKernel"/>
+  </php>  
   <source>
     <include>
       <directory suffix=".php">./src</directory>

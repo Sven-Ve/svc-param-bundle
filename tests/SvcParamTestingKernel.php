@@ -2,11 +2,7 @@
 
 namespace Svc\ParamBundle\Tests;
 
-require_once(__dir__ . "/Dummy/AppKernelDummy.php");
-
-use App\Kernel as AppKernel;
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
-use Svc\ParamBundle\Repository\ParamsRepository;
 use Symfony\Component\HttpKernel\Kernel;
 use Svc\ParamBundle\SvcParamBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
@@ -21,100 +17,49 @@ use Symfony\Bundle\TwigBundle\TwigBundle;
  */
 class SvcParamTestingKernel extends Kernel
 {
+ 
   use MicroKernelTrait;
-
-  private $builder;
-  private $routes;
-  private $extraBundles;
-
-  /**
-   * @param array             $routes  Routes to be added to the container e.g. ['name' => 'path']
-   * @param BundleInterface[] $bundles Additional bundles to be registered e.g. [new Bundle()]
-   */
-  public function __construct(ContainerBuilder $builder = null, array $routes = [], array $bundles = [])
-  {
-    $this->builder = $builder;
-    $this->routes = $routes;
-    $this->extraBundles = $bundles;
-
-    parent::__construct('test', true);
-  }
 
   public function registerBundles(): iterable
   {
-    return [
-      new SvcParamBundle(),
-      new FrameworkBundle(),
-      new DoctrineBundle(),
-      new TwigBundle(),
-    ];
+    yield new FrameworkBundle();
+    yield new TwigBundle();
+    yield new SvcParamBundle();
+    yield new DoctrineBundle();
   }
 
-  public function registerContainerConfiguration(LoaderInterface $loader): void
+  protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
   {
-    if (null === $this->builder) {
-      $this->builder = new ContainerBuilder();
-    }
+    $config = [
+      'http_method_override' => false,
+      'secret' => 'foo-secret',
+      'test' => true,
+    ];
 
-    $builder = $this->builder;
+    $container->loadFromExtension('framework', $config);
 
-    $loader->load(function (ContainerBuilder $container) use ($builder) {
-      $container->merge($builder);
-
-      $container->loadFromExtension(
-        'framework',
-        [
-          'secret' => 'foo',
-          'http_method_override' => false,
-          'router' => [
-            'resource' => 'kernel::loadRoutes',
-            'type' => 'service',
-            'utf8' => true,
-          ],
-        ]
-      );
-
-      $container->loadFromExtension('doctrine', [
-        'dbal' => [
+    $container->loadFromExtension('doctrine', [
+      'dbal' => [
 //          'override_url' => true,
-          'driver' => 'pdo_sqlite',
-          'url' => 'sqlite:///' . $this->getCacheDir() . '/app.db',
-        ],
-        'orm' => [
-          'auto_generate_proxy_classes' => true,
-          'auto_mapping' => true,
-          'enable_lazy_ghost_objects' => true,
-          'report_fields_where_declared' => true
-        ],
-      ]);
-
-      $container->register(ParamsRepository::class)
-      ->setAutoconfigured(true)
-      ->setAutowired(true);
-
-      $container->register(AppKernel::class)
-      ->setAutoconfigured(true)
-      ->setAutowired(true);
-
-      $container->register('kernel', static::class)->setPublic(true);
-
-      $kernelDefinition = $container->getDefinition('kernel');
-      $kernelDefinition->addTag('routing.route_loader');
-    });
+        'driver' => 'pdo_sqlite',
+        'url' => 'sqlite:///' . $this->getCacheDir() . '/app.db',
+      ],
+      'orm' => [
+        'auto_generate_proxy_classes' => true,
+        'auto_mapping' => true,
+        'enable_lazy_ghost_objects' => true,
+        'report_fields_where_declared' => true
+      ],
+    ]);
   }
 
   /**
-   * load bundle routes
+   * load bundle routes.
    *
-   * @param RoutingConfigurator $routes
    * @return void
    */
-  protected function configureRoutes(RoutingConfigurator $routes)
+  private function configureRoutes(RoutingConfigurator $routes)
   {
     $routes->import(__DIR__ . '/../config/routes.yaml')->prefix('/svc-param/{_locale}');
-  }
-
-  protected function configureContainer(ContainerBuilder $c, LoaderInterface $loader)
-  {
   }
 }

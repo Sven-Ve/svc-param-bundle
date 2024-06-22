@@ -99,3 +99,8 @@
 ## Version 6.2.1
 *Fri, 14 Jun 2024 10:22:17 +0000*
 - add error message on param index page, if table not exists
+
+
+## Version 6.3.0
+*Sat, 22 Jun 2024 20:14:21 +0000*
+- better testing kernel, phpstan level 6

@@ -83,7 +83,8 @@
 
 ## Version 6.0.1
 *Sun, 17 Dec 2023 18:29:37 +0000*
-- ready for symfony 6.4 and 7 - fixed test errors
+- ready for symfony 6.4 and 7 
+- fixed test errors
 
 
 ## Version 6.1.0
@@ -103,4 +104,10 @@
 
 ## Version 6.3.0
 *Sat, 22 Jun 2024 20:14:21 +0000*
-- better testing kernel, phpstan level 6
+- better testing kernel,
+- phpstan level 6
+
+
+## Version 6.3.1
+*Sat, 22 Jun 2024 20:36:05 +0000*
+- return type declaration added

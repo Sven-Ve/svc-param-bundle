@@ -51,7 +51,7 @@ class ParamsType extends AbstractType
     }
   }
 
-  public function configureOptions(OptionsResolver $resolver)
+  public function configureOptions(OptionsResolver $resolver): void
   {
     $resolver->setDefaults([
       'data_class' => Params::class,

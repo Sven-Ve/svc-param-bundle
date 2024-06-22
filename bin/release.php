@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "6.3.0";
-$message = "better testing kernel, phpstan level 6";
+$version = "6.3.1";
+$message = "return type declaration added";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

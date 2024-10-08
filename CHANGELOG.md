@@ -111,3 +111,8 @@
 ## Version 6.3.1
 *Sat, 22 Jun 2024 20:36:05 +0000*
 - return type declaration added
+
+
+## Version 6.4.0
+*Tue, 08 Oct 2024 08:20:02 +0000*
+- The package will no longer be developed further

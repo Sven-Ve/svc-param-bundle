@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "6.3.1";
-$message = "return type declaration added";
+$version = "6.4.0";
+$message = "The package will no longer be developed further";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

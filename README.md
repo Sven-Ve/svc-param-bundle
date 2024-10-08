@@ -6,11 +6,10 @@
 [![Total Downloads](https://poser.pugx.org/svc/param-bundle/downloads)](https://packagist.org/packages/svc/param-bundle)
 [![PHP Version Require](http://poser.pugx.org/svc/param-bundle/require/php)](https://packagist.org/packages/svc/param-bundle)
 
-:warning: **Attention:** <br/>
-From version 4.0 the bundle works only with Symfony >=6.1, because the new Bundle Configuration System is used.<br/>
-Please use version 3.x for older Symfony installations.<br/>
+## :warning: **Attention:** <br/>
+The package will no longer be developed further. I now use [jbtronics/settings-bundle](https://github.com/jbtronics/settings-bundle) for all my programs. 
 
-## Package to handle (set, get, edit) params in a database table
+### Package to handle (set, get, edit) params in a database table
 
 * [installation](docs/installation.md)
 * [Usage](docs/usage.md)
